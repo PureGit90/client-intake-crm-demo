@@ -11,7 +11,7 @@
 
 Built working demos of all three workflows: intake extraction with Claude, document reminder drafting with a human review gate, and a masked audit log. Everything runs on sample data only, with GDPR notes and email masking built in.
 
-**Demo:** [STREAMLIT_LINK]
+**Demo:** https://client-intake-crm-demo-8xtkcs57t8elmmkxbzd2yg.streamlit.app
 **Screenshots:** [ATTACHED]
 
 ---

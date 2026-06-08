@@ -1,6 +1,6 @@
 Built working demos of all three workflows: intake extraction with Claude, document reminder drafting with a human review gate, and a masked audit log. Everything runs on sample data only, with GDPR notes and email masking baked into the UI.
 
-Demo is live here: [STREAMLIT_LINK]
+Demo is live here: https://client-intake-crm-demo-8xtkcs57t8elmmkxbzd2yg.streamlit.app
 
 For the first test project, I'd start with whichever workflow is creating the most friction for your clients right now, get it running cleanly on sample data, document the full data flow, and only then connect to production systems. Nothing sends automatically. The human review gate is built into the reminder step by default, not bolted on later.
 
