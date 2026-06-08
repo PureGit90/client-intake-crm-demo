@@ -32,11 +32,38 @@ For docs_required, use standard onboarding documents appropriate to the service 
 - Other: ["Signed Contract", "ID Verification"]"""
 
 
+def _mock_extract(form_data: dict) -> dict:
+    """Return structured intake from form fields directly — no API key needed."""
+    from datetime import datetime, timezone
+    service = form_data.get("service_requested", "Other")
+    docs_map = {
+        "CRM Setup": ["Signed Contract", "ID Verification", "Proof of Address"],
+        "Email Automation": ["Signed Contract", "ID Verification", "Signed NDA"],
+        "Document Workflow": ["Signed Contract", "ID Verification", "Proof of Address", "Signed NDA"],
+        "Other": ["Signed Contract", "ID Verification"],
+    }
+    return {
+        "name": form_data.get("name", ""),
+        "company": form_data.get("company", ""),
+        "email": form_data.get("email", ""),
+        "phone": form_data.get("phone", ""),
+        "service_requested": service,
+        "notes": form_data.get("notes", "") or f"Client requested {service} setup.",
+        "intake_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "docs_required": docs_map.get(service, ["Signed Contract", "ID Verification"]),
+        "docs_submitted": [],
+        "demo_mode": True,
+    }
+
+
 def extract_intake(form_data: dict, api_key: str) -> dict:
     """
     Given a dict of form fields, use Claude to extract and structure the intake.
     Returns a structured client dict.
     """
+    if not api_key:
+        return _mock_extract(form_data)
+
     client = anthropic.Anthropic(api_key=api_key)
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 

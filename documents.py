@@ -20,6 +20,29 @@ Rules:
 - Do NOT include placeholders like [Your Name] — write the full email ready to send"""
 
 
+def _mock_reminder(client: dict, missing_docs: list[str]) -> dict:
+    """Return a realistic mock reminder email without an API key."""
+    docs_list = "\n".join(f"  - {doc}" for doc in missing_docs)
+    subject = f"Action Required: Outstanding Documents — {client.get('company', 'Your Account')}"
+    body = f"""Hi {client.get('name', 'there')},
+
+I hope you're settling in well. To complete your onboarding for the {client.get('service_requested', 'service')} we have set up for you, we still need the following documents:
+
+{docs_list}
+
+Once received, we'll process them securely and confirm receipt within one business day. All documents are handled in line with our data protection policy and never stored in plain text.
+
+Please reply to this email or use our secure upload link to submit them at your convenience.
+
+The Onboarding Team"""
+    return {
+        "subject": subject,
+        "body": body,
+        "full_text": f"Subject: {subject}\n\n{body}",
+        "demo_mode": True,
+    }
+
+
 def draft_reminder(client: dict, missing_docs: list[str], api_key: str) -> dict:
     """
     Given a client record and list of missing document names,
@@ -27,6 +50,9 @@ def draft_reminder(client: dict, missing_docs: list[str], api_key: str) -> dict:
 
     Returns: {"subject": str, "body": str, "full_text": str}
     """
+    if not api_key:
+        return _mock_reminder(client, missing_docs)
+
     anthropic_client = anthropic.Anthropic(api_key=api_key)
 
     docs_list = "\n".join(f"- {doc}" for doc in missing_docs)
