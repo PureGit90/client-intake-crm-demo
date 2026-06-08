@@ -1,0 +1,13 @@
+Built working demos of all three workflows: intake extraction with Claude, document reminder drafting with a human review gate, and a masked audit log. Everything runs on sample data only, with GDPR notes and email masking baked into the UI.
+
+Demo is live here: [STREAMLIT_LINK]
+
+For the first test project, I'd start with whichever workflow is creating the most friction for your clients right now, get it running cleanly on sample data, document the full data flow, and only then connect to production systems. Nothing sends automatically. The human review gate is built into the reminder step by default, not bolted on later.
+
+I build intake, CRM, and document workflows regularly for professional services clients using Make.com, n8n, and the Claude API. I can work with Airtable, Notion, or whatever CRM your clients are already on.
+
+Stack: Python, Claude API, Make.com or n8n, Airtable or Notion for CRM.
+
+What's the first workflow you want to test?
+
+Rate: $500

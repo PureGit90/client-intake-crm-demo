@@ -1,0 +1,41 @@
+[
+  {
+    "id": "client_001",
+    "name": "Sarah Thompson",
+    "company": "Thompson Legal Services",
+    "email": "sarah.thompson@thompsonlegal.co.uk",
+    "phone": "+44 20 7946 0001",
+    "service_requested": "CRM Setup",
+    "notes": "Wants to migrate from spreadsheets to a proper CRM. Currently tracking ~150 active clients manually.",
+    "intake_date": "2026-06-01",
+    "docs_required": ["Signed Contract", "ID Verification", "Proof of Address", "Signed NDA"],
+    "docs_submitted": ["Signed Contract", "ID Verification", "Proof of Address", "Signed NDA"],
+    "status": "active"
+  },
+  {
+    "id": "client_002",
+    "name": "James Okafor",
+    "company": "Okafor & Partners Consulting",
+    "email": "james@okaforpartners.com",
+    "phone": "+44 7700 900123",
+    "service_requested": "Document Workflow",
+    "notes": "Needs automated document collection for onboarding new corporate clients. Currently manual and slow.",
+    "intake_date": "2026-06-03",
+    "docs_required": ["Signed Contract", "ID Verification", "Proof of Address", "Signed NDA"],
+    "docs_submitted": ["Signed Contract", "ID Verification"],
+    "status": "active"
+  },
+  {
+    "id": "client_003",
+    "name": "Priya Mehta",
+    "company": "Meridian Growth Agency",
+    "email": "priya.mehta@meridiangrowth.co.uk",
+    "phone": "+44 7700 900456",
+    "service_requested": "Email Automation",
+    "notes": "Fresh intake. Running a digital marketing agency. Wants AI-driven email sequences for client campaigns.",
+    "intake_date": "2026-06-08",
+    "docs_required": ["Signed Contract", "ID Verification", "Proof of Address", "Signed NDA"],
+    "docs_submitted": [],
+    "status": "new"
+  }
+]
